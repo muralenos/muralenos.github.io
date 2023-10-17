@@ -6,6 +6,8 @@ dm.fn.loadDataset("sports", {
     "ids": ["1"],
     "show": ["1"],
 
+    "category": ["Soccer","Beisbol"],
+
     buildDetail: function (data, cb) {
 
         //

@@ -21,7 +21,7 @@ dm.fn.loadPage("detail", 'raw.html', {
 
             dm.fn.showText("entrytitle", info.title || '');
             dm.fn.showText("entrydesc", info.desc || '');
-            dm.fn.showText("entrytext", info.text || '');
+            dm.fn.showText("entrytext", info.pre || '');
 
             if (info.header) dm.fn.showText("pagetitle", info.header);
 
@@ -73,7 +73,7 @@ dm.fn.loadPage("detail", 'raw.html', {
         data = data.replace("$$image$$", image || '');
 
         // Build 
-        shared.code.buildFood(id, "large image carousel wide noclick", function (gend) {
+        shared.code.buildEntry(id, "large image carousel wide noclick", function (gend) {
 
             // Stuff
             data = data.replace("$$info$$", gend);

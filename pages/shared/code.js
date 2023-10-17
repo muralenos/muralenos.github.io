@@ -21,7 +21,7 @@ var shared = {
 
         },
 
-        buildFood: function (id, style, cb, dsp) {
+        buildEntry: function (id, style, cb, dsp) {
 
             //
             var page = "entry_food";
@@ -90,6 +90,12 @@ var shared = {
                         image += "<hr/>";
                     }
 
+                    //
+                    //image = image || '';
+                    //if (entry.pre) {
+                    //    image = '<p>' + entry.pre + '</p><hr/>' + image;
+                    //}
+
                     var addr = null;
                     var addrblock = entry.address;
                     if (addrblock) {
@@ -126,6 +132,10 @@ var shared = {
 
                     // Lines
                     var lines = [];
+
+                    if (entry.post && shared.code.contains(style, "large")){
+                        lines.push("<p>" + entry.post + "</p><hr/>");
+                    }
 
                     if (addr) {
                         var line = "<li><a";
@@ -205,7 +215,7 @@ var shared = {
             //
             var line = ''; 
 
-            line += '<div class="tour-stat stat" ><img src="' + data.imageURL + '"v class="tour-stat stat"></img></div>';
+            line += '<div class="tour-stat stat" ><img src="' + data.imageURL + '" class="tour-stat stat"></img></div>';
 
             line += '<div class="tour-stat stat"><h6>' + data.title + '</h6></div>';
 
