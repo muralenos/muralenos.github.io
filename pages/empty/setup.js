@@ -1,5 +1,5 @@
 //
-dmfns.fn.loadPage("???", "raw.html", {
+dm.fn.loadPage("???", "raw.html", {
 
     load: function(pageinfo, ds, dsinfo, id, entryinfo, cb) {
 

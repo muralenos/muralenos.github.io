@@ -1,44 +1,16 @@
 // Data
-dmfns.fn.loadDataset("blog", {
+dm.fn.loadDataset("blog", {
 
     title: "Blog",
 
-    "data": {
+    "ids": ["1"],
+    "show": ["1"],
 
-        "1": {
-            "title": "",
-            "desc": "",
-            "image": "base.jpg",
-            "imagewho": "",
-            "carousel": [],
-            "address": {
-                "street1": "",
-                "street2": "",
-                "mhood": "",
-                "district": "",
-                "canton": "",
-                "province": ""
-            },
-            "phone": "",
-            "whatsapp": "",
-            "url": "",
-            "date": "",
-            "hours": {
-                "mon": ["", ""],
-                "tue": ["", ""],
-                "wed": ["", ""],
-                "thu": ["", ""],
-                "fri": ["", ""],
-                "sat": ["", ""],
-                "sun": ["", ""]
-            },
-            "gps": {
-                "lat": 0,
-                "lng": 0
-            },
-            "text": "",
-            "options": []
-        }
+    buildDetail: function (data, cb) {
+
+        //
+        shared.code.buildDetail(data, cb);
+
     }
 
 });

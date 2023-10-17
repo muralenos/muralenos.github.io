@@ -1,10 +1,10 @@
 //
-dmfns.fn.loadPage("menu", 'raw.html', {
+dm.fn.loadPage("menu", 'raw.html', {
     load:function(pageinfo, ds, dsinfo, id, entryinfo, cb) {
 
     //
-    dmfns.fn.showText("pagetitle", "<Menu");
-    dmfns.fn.setOnClick("pagetitle", dmfns.clicks.goBack);
+    dm.fn.showText("pagetitle", "<Menu");
+    dm.fn.setOnClick("pagetitle", dm.clicks.goBack);
 
     if (cb) cb();
 

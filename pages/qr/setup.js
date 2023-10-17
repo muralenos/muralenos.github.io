@@ -1,13 +1,13 @@
 //
-dmfns.fn.loadPage("qr", "raw.html", {
+dm.fn.loadPage("qr", "raw.html", {
     load:function(pageinfo, ds, dsinfo, id, entryinfo, cb) {
 
     //
-    dmfns.fn.showText("pagetitle", "QR");
-    dmfns.fn.setOnClick("pagetitle", dmfns.clicks.goBack);
+    dm.fn.showText("pagetitle", "QR");
+    dm.fn.setOnClick("pagetitle", dm.clicks.goBack);
 
     // Get history
-    var entry = dmfns.history[dmfns.history.length - 2]; 
+    var entry = dm.history[dm.history.length - 2]; 
 
     //
     var url =window.location.host + "?name=" + entry.name + "&ds="+(entry.ds ||'') + "&id=" + (entry.id || '');

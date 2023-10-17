@@ -1,10 +1,10 @@
 //
-dmfns.fn.loadPage("map", 'raw.html', {
+dm.fn.loadPage("map", 'raw.html', {
     load:function(pageinfo, ds, dsinfo, id, entryinfo, cb) {
 
     //
-    dmfns.fn.showText("pagetitle", "Mapa");
-    dmfns.fn.setOnClick("pagetitle", dmfns.clicks.goBack);
+    dm.fn.showText("pagetitle", "Mapa");
+    dm.fn.setOnClick("pagetitle", dm.clicks.goBack);
 
     if (cb) cb();
 

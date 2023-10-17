@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- AWESOME -->
     <script src="https://kit.fontawesome.com/f9b5556e68.js" crossorigin="anonymous"></script>
-    <!-- Carousel -->
-    <link rel="stylesheet" href="css/vanilla-js-carousel.css" />
+    <!-- Listing CSS -->
+    <link rel="stylesheet" href="css/listing.css">
 </head>
 
 <body>
@@ -39,21 +39,21 @@
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <button id="pagetitle" class="navbar-brand" onclick="dmfns.fn.goHome()">???</button>
-                            <button id="btnx" class="nav-link" justify-content-end onclick="dmfns.fn.goBack()">Regreso</button>
+                            <button id="pagetitle" class="navbar-brand" onclick="dm.fn.goHome()">???</button>
+                            <button id="btnx" class="nav-link" justify-content-end onclick="dm.fn.goBack()">Regreso</button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
                                     <li id="btnwho" class="nav-item">
-                                        <button class="nav-link" onclick="dmfns.fn.showPage('detail', 'other', '1')">Quienes somos</button>
+                                        <button class="nav-link" onclick="dm.fn.showPage('detail', 'other', '1')">Quienes somos</button>
                                     </li>
                                     <li id="btnblog" class="nav-item">
-                                        <button class="nav-link" onclick="dmfns.fn.showPage('listing', 'blog')">Blog</button>
+                                        <button class="nav-link" onclick="dm.fn.showPage('listing', 'blog')">Blog</button>
                                     </li>
                                     <li id="btnhome" class="nav-item">
-                                        <button class="nav-link" onclick="dmfns.fn.goHome()">Inicio</button>
+                                        <button class="nav-link" onclick="dm.fn.goHome()">Inicio</button>
                                     </li>
                                     <li id="btnback" class="nav-item">
-                                        <button class="nav-link" onclick="dmfns.fn.goBack()">Regreso</button>
+                                        <button class="nav-link" onclick="dm.fn.goBack()">Regreso</button>
                                     </li>
                                 </ul>
                             </div>
@@ -74,7 +74,7 @@
                 <div class="col-md-12">
                     <div class="copyright">
                         <!-- Link back to Colorlib cannot be removed. Template is licensed under CC BY 3.0. -->
-                        <p>Copyright &copy; 2023 Comite Muraleño de Santo Domingo de Heredia. Todos los derechos reservados</p><p>This template is made with <i class="ti-heart" aria-hidden="true" onclick="dmfns.fn.showPage('qr')"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        <p>Copyright &copy; 2023 Comite Muraleño de Santo Domingo de Heredia. Todos los derechos reservados</p><p>This template is made with <i class="ti-heart" aria-hidden="true" onclick="dm.fn.showPage('qr')"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
                         <a href="http://dondemingo.com">Visitenos en nuestro sitio web!</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <ul>
@@ -97,8 +97,7 @@
     <script src="js/simpleslider.min.js"></script>
 
     <!-- OUR CODE -->
-    <script src="js/lokijs.js"></script>
-    <script src="js/dmfns.js"></script>
+    <script src="js/dm.js"></script>
 
     <!-- PAGES -->
     <script src="pages/shared/code.js"></script>
@@ -122,31 +121,31 @@
 
         window.addEventListener('popstate', (event) => {
 
-            dmfns.fn.goBack();
+            dm.fn.goBack();
 
         });
 
-        dmfns.fn.onLoad(function () {
+        dm.fn.onLoad(function () {
 
             //alert(window.screen.width);
 
-            dmfns.fn.setFixedScroll();
+            dm.fn.setFixedScroll();
 
             // Called?
-            var name = dmfns.urlParams.get("name");
+            var name = dm.urlParams.get("name");
 
             if (name) {
 
-                dmfns.static = true;
+                dm.static = true;
 
-                var ds = dmfns.urlParams.get("ds");
-                var id = dmfns.urlParams.get("id");
+                var ds = dm.urlParams.get("ds");
+                var id = dm.urlParams.get("id");
 
-                dmfns.fn.showPage(name, ds, id);
+                dm.fn.showPage(name, ds, id);
 
             } else {
 
-                dmfns.fn.showPage("intro");
+                dm.fn.showPage("intro");
 
             }
 

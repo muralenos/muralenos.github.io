@@ -1,53 +1,58 @@
 //
-dmfns.fn.loadPage("detail", 'raw.html', {
+dm.fn.loadPage("detail", 'raw.html', {
 
     load: function (pageinfo, ds, dsinfo, id, entryinfo, cb) {
 
         //
         var title = dsinfo.title;
-        if (dmfns.static) {
+        if (dm.static) {
             title = "";
-            dmfns.fn.addClass("pagetitle", "fa-solid fa-location-dot");
+            dm.fn.addClass("pagetitle", "fa-solid fa-location-dot");
         } else {
-            dmfns.fn.removeClass("pagetitle", "fa-solid fa-location-dot");
+            dm.fn.removeClass("pagetitle", "fa-solid fa-location-dot");
         }
-        dmfns.fn.showText("pagetitle", title);
+        dm.fn.showText("pagetitle", title);
 
         // Get info
-        var info = dmfns.fn.getInfo(ds, id) || {};
+        dm.fn.fetchEntry(ds, id, function (info) {
 
-        dmfns.fn.showText("entrytitle", info.title || '');
-        dmfns.fn.showText("entrydesc", info.desc || '');
-        dmfns.fn.showText("entrytext", info.text || '');
+            // Assure
+            info = info || {};
 
-        if (info.header) dmfns.fn.showText("pagetitle", info.header);
-        dmfns.fn.setOnClick("pagetitle", dmfns.clicks.goBack);
+            dm.fn.showText("entrytitle", info.title || '');
+            dm.fn.showText("entrydesc", info.desc || '');
+            dm.fn.showText("entrytext", info.text || '');
 
-        //
-        var owner = entryinfo.owner || {};
-        var image = null;
-        if (owner.image) {
-            image = "pages/" + ds + "/entry" + id + "/" + owner.image;
-        } else {
-            image = "images/clear.gif";
-        }
-        dmfns.fn.showText("owner", owner.name || '');
-        dmfns.fn.showImage("ownerimage", image || '');
+            if (info.header) dm.fn.showText("pagetitle", info.header);
+            dm.fn.setOnClick("pagetitle", dm.clicks.goBack);
 
-        //
-        if (dmfns.showCarousel) {
+            //
+            var owner = entryinfo.owner || {};
+            var image = null;
+            if (owner.image) {
+                image = entryinfo.URL + "/"  + owner.image;
+            } else {
+                image = "images/clear.gif";
+            }
+            dm.fn.showText("owner", owner.name || '');
+            dm.fn.showImage("ownerimage", image || '');
 
-            var wide = dmfns.fn.isWide();
+            //
+            if (dm.showCarousel) {
 
-            simpleslider.getSlider({
-                container: document.getElementById('carousel'),
-                transitionTime: 1,
-                delay: 3.5
-            });
+                var wide = dm.fn.isWide();
 
-        }
+                simpleslider.getSlider({
+                    container: document.getElementById('carousel'),
+                    transitionTime: 1,
+                    delay: 3.5
+                });
 
-        if (cb) cb();
+            }
+
+            cb();
+
+        });
 
     },
     pre: function (data, pageinfo, ds, dsinfo, id, entry, cb) {
@@ -71,7 +76,7 @@ dmfns.fn.loadPage("detail", 'raw.html', {
             // Passback
             if (cb) cb(data);
 
-        });
+        }, ds);
 
         //
         if (cb) cb(data);

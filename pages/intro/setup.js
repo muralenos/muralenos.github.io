@@ -1,17 +1,17 @@
 //
-dmfns.fn.loadPage("intro", 'raw.html', {
+dm.fn.loadPage("intro", 'raw.html', {
 
     load: function (pageinfo, ds, dsinfo, id, entryinfo, cb) {
 
         //
-        dmfns.fn.showText("pagetitle", "Guia");
-        dmfns.fn.setOnClick("pagetitle");
+        dm.fn.showText("pagetitle", "Guia");
+        dm.fn.setOnClick("pagetitle");
 
-        dmfns.fn.showText("histtitle", dmfns.fn.getDatasetTitle("hist"));
-        dmfns.fn.showText("foodtitle", dmfns.fn.getDatasetTitle("food"));
-        dmfns.fn.showText("othertitle", dmfns.fn.getDatasetTitle("other"));
-        dmfns.fn.showText("sporttitle", dmfns.fn.getDatasetTitle("sports"));
-        dmfns.fn.showText("eventtitle", dmfns.fn.getDatasetTitle("events"));
+        dm.fn.showText("histtitle", dm.fn.getDatasetTitle("hist"));
+        dm.fn.showText("foodtitle", dm.fn.getDatasetTitle("food"));
+        dm.fn.showText("othertitle", dm.fn.getDatasetTitle("other"));
+        dm.fn.showText("sporttitle", dm.fn.getDatasetTitle("sports"));
+        dm.fn.showText("eventtitle", dm.fn.getDatasetTitle("events"));
 
         if (cb) cb();
 
@@ -24,31 +24,43 @@ dmfns.fn.loadPage("intro", 'raw.html', {
         //
         var tbd = ["1", "2", "3"];
 
-        // List of picjed
+        // List 
+        var done = [];
         var picked = [];
 
         // Fill each
-        tbd.forEach(function (inst) {
-
-            //
-            var target = "$$feat" + inst + "$$";
-            var gend = "";
+        tbd.forEach(function (inst, index) {
 
             // Pick one
-            var nxt = dmfns.fn.pickRandom(ds, picked);
-            if (nxt) {
+            var nxt = dm.fn.pickRandom(ds, picked);
+            // Save
+            tbd[index] = nxt;
+            // and no repeats
+            if (nxt) picked.push(nxt);
 
-                // Save
-                picked.push(nxt);
+        });
+
+        // And do
+        tbd.forEach(function (nxt, index) {
+
+            //
+            var id = nxt;
+            var target = "$$feat" + index + "$$";
+            var gend = "";
+
+            if (id) {
 
                 // Build 
-                shared.code.buildFood(nxt, "small title image", function (gend) {
+                shared.code.buildFood(id, "small title image", function (gend) {
 
                     // Stuff
                     data = data.replace(target, gend);
 
+                    //
+                    done.push(nxt);
+
                     // Done?
-                    if (picked.length >= tbd.length) {
+                    if (done.length >= tbd.length) {
 
                         // Passback
                         if (cb) cb(data);
@@ -58,21 +70,18 @@ dmfns.fn.loadPage("intro", 'raw.html', {
 
             } else {
 
-                // Fake
-                picked.push("0");
-
                 // Stuff
                 data = data.replace(target, gend);
 
+                //
+                done.push(nxt);
+
                 // Done?
-                if (picked.length >= tbd.length) {
+                if (done.length >= tbd.length) {
 
                     // Passback
                     if (cb) cb(data);
                 }
-
-                // Passback
-                if (cb) cb(data);
 
             }
         });
