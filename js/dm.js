@@ -157,6 +157,13 @@ var dm = {
 
         },
 
+        goLanding: function () {
+
+            //
+            dm.fn.showPage('intro');
+
+        },
+
         isWide: function () {
             return window.screen.width >= 992;
         },
@@ -409,7 +416,8 @@ var dm = {
     clicks: {
 
         goHome: "dm.fn.goHome()",
-        goBack: "dm.fn.goBack()"
+        goBack: "dm.fn.goBack()",
+        goLanding: "dm.fn.goLanding()"
 
     }
 };

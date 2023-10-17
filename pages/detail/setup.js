@@ -24,7 +24,12 @@ dm.fn.loadPage("detail", 'raw.html', {
             dm.fn.showText("entrytext", info.text || '');
 
             if (info.header) dm.fn.showText("pagetitle", info.header);
-            dm.fn.setOnClick("pagetitle", dm.clicks.goBack);
+
+            if (dm.static) {
+                dm.fn.setOnClick("pagetitle", dm.clicks.goLanding);
+            } else {
+                dm.fn.setOnClick("pagetitle", dm.clicks.goBack);
+            }
 
             //
             var owner = entryinfo.owner || {};
