@@ -11,7 +11,7 @@ dm.fn.loadDataset("sports", {
     buildDetail: function (data, cb) {
 
         //
-        shared.code.buildDetail(data, cb);
+        dm.fn.buildDetail(data, cb);
 
     }
 

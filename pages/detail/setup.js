@@ -73,7 +73,7 @@ dm.fn.loadPage("detail", 'raw.html', {
         data = data.replace("$$image$$", image || '');
 
         // Build 
-        shared.code.buildEntry(id, "large image carousel wide noclick", function (gend) {
+        dm.fn.buildEntry(id, "large image carousel wide noclick", function (gend) {
 
             // Stuff
             data = data.replace("$$info$$", gend);

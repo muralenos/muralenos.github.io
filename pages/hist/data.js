@@ -9,7 +9,7 @@ dm.fn.loadDataset("hist", {
     buildDetail: function (data, cb) {
 
         //
-        shared.code.buildDetail(data, cb);
+        dm.fn.buildDetail(data, cb);
 
     }
 

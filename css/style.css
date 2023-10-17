@@ -244,7 +244,8 @@ p {
   width: 40%;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
-  border: none; }
+  border: none; 
+  font-weight:800 }
   @media (max-width: 576px) {
     .btn-group1 {
       width: 100%;

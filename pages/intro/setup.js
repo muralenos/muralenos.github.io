@@ -51,7 +51,7 @@ dm.fn.loadPage("intro", 'raw.html', {
             if (id) {
 
                 // Build 
-                shared.code.buildEntry(id, "small title image", function (gend) {
+                dm.fn.buildEntry(id, "small title image", function (gend) {
 
                     // Stuff
                     data = data.replace(target, gend);
