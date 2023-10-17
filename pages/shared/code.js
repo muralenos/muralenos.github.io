@@ -90,12 +90,6 @@ var shared = {
                         image += "<hr/>";
                     }
 
-                    //
-                    //image = image || '';
-                    //if (entry.pre) {
-                    //    image = '<p>' + entry.pre + '</p><hr/>' + image;
-                    //}
-
                     var addr = null;
                     var addrblock = entry.address;
                     if (addrblock) {
