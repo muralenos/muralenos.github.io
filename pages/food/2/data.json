@@ -4,7 +4,6 @@
   "pre": "Comida de casa preparada con amor por Myriam.",
   "post": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,",
   "image": "base.jpg",
-  "imagewho": "",
   "carousel": [ "item1.jpg", "item2.jpg" ],
   "category": [ "Soda" ],
   "address": {
@@ -22,19 +21,8 @@
     "image": "owner.jpg"
   },
   "url": "https://cnn.com",
-  "date": "",
   "hours": {
-    "mon": [ "6PM", "10PM" ],
-    "tue": [ "6PM", "10PM" ],
-    "wed": [ "6PM", "10PM" ],
-    "thu": [ "6PM", "10PM" ],
-    "fri": [ "6PM", "10PM" ],
-    "sat": [ "6PM", "10PM" ],
-    "sun": [ "6PM", "10PM" ]
-  },
-  "gps": {
-    "lat": 9.976807680923583,
-    "lng": -84.09133997498532
+    "Diario": [ "6PM", "10PM" ]
   },
   "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d982.3712292665274!2d-84.09198956564067!3d9.97674296095177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e58a85539a63%3A0x23d14e545b7178cb!2sSoda%20Eli.%20%22El%20Sabor%20de%20Mingo%22!5e0!3m2!1sen!2scr!4v1697146215862!5m2!1sen!2scr",
   "options": [ "Comedor", "Para llevar" ],

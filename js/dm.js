@@ -556,8 +556,8 @@ var dm = {
                     }
 
                     if (wa) {
-                        var line = "<li><a";
-                        line += ' href="https://wa.me/' + wa + '">';
+                        var line = "<li>";
+                        line += '<a href="https://wa.me/' + wa + '">';
                         line += '<span class="fa fa-whatsapp"></span>';
                         line += "<p>" + entry.whatsapp + "</p></a></li>";
 
@@ -565,8 +565,8 @@ var dm = {
                     }
 
                     if (entry.url) {
-                        var line = "<li><a";
-                        line += ' href="' + entry.url + '">';
+                        var line = "<li>";
+                        line += '<a href="' + entry.url + '">';
                         line += '<span class="fa-solid fa-cloud"></span>';
                         line += "<p>" + entry.url + "</p></a></li>";
 
@@ -575,6 +575,36 @@ var dm = {
 
                     // Handle all the info
                     if (dm.fn.contains(style, "large")) {
+
+                        if (entry.date) {
+                            var line = "<li>";
+                            line += '<span class="fa-solid fa-calendar-days"></span><p>';
+                            if (typeof entry.date == 'string') {
+                                line += dm.fn.formatDate(entry.date);
+                            } else {
+                                var date = entry.date || {};
+                                if (date.start) line += "De " + dm.fn.formatDate(date.start);
+                                if (date.end) line += " A " + dm.fn.formatDate(date.end);
+                            }                            
+                            line +="</p></li>";
+
+                            lines.push(line);
+                        }
+
+                        if (entry.hours) {
+                            var line = "<li>";
+                            line += '<span class="fa-solid fa-clock"></span>Horario<table>';
+
+                            // 
+                            Object.keys(entry.hours).forEach(function (day) {
+                                var row = entry.hours[day];
+                                line += '<tr><td>' + day + '</td><td>&nbsp;&nbsp;</td><td>' + row[0] + '</td><td>-</td><td>' + row[1] + '</td></tr>';
+                            });
+
+                            line += "</table></li>";
+
+                            lines.push(line);
+                        }
 
                         if (entry.menu) {
 
@@ -696,6 +726,27 @@ var dm = {
             return ans;
 
         },
+
+        capWord: function (text) {
+
+            const words = text.split(" ");
+
+            for (var i = 0; i < words.length; i++) {
+                words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+            }
+
+            return words.join(" ");
+        },
+
+        formatDate: function (date) {
+            // Assure value
+            date = date || '';
+            // Assure time
+            if (date.indexOf(":") == -1) date += " 0:0:0";
+            // Convert
+            return dm.fn.capWord(new Date(date).toLocaleDateString('es', { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
+
+        }
 
     },
 

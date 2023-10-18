@@ -2,34 +2,16 @@
   "title": "Do�a Tina #2",
   "desc": "Para un buen desayuno",
   "image": "base.jpg",
-  "imagewho": "",
-  "carousel": [],
+  "pre": "Podes armar el plato como gustes, por eso me gusta los restaurantes buffet. La mano de piedra totalmente recomendada! Si subieron los precios, el parqueo es inc�modo porque hay que dejar el carro en la calle y por lo general se llena.",
   "address": {
     "street1": "500 mts sur de la Basilica",
-    "street2": "",
-    "mhood": "",
-    "district": "",
-    "canton": "Santo Domingo",
-    "province": ""
+    "canton": "Santo Domingo"
   },
   "phone": "2244 5945",
-  "whatsapp": "",
-  "url": "",
-  "date": "",
   "hours": {
-    "mon": [ "7AM", "4PM" ],
-    "tue": [ "7AM", "4PM" ],
-    "wed": [ "7AM", "4PM" ],
-    "thu": [ "7AM", "4PM" ],
-    "fri": [ "7AM", "4PM" ],
-    "sat": [ "8AM", "4PM" ],
-    "sun": [ "8AM", "4PM" ]
-  },
-  "gps": {
-    "lat": 9.97738149054989,
-    "lng": -84.08827117772363
+    "Lunes-Viernes": [ "7AM", "4PM" ],
+    "Sabado-Domingo": [ "8AM", "4PM" ]
   },
   "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3929.472494616968!2d-84.08597340727732!3d9.977772600650038!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e4da4be413df%3A0xdc793c4b155bc098!2zRG_DsWEgVGluYSAjMg!5e0!3m2!1sen!2scr!4v1697148073472!5m2!1sen!2scr",
-  "text": "Podes armar el plato como gustes, por eso me gusta los restaurantes buffet. La mano de piedra totalmente recomendada! Si subieron los precios, el parqueo es inc�modo porque hay que dejar el carro en la calle y por lo general se llena.",
   "options": [ "Comedor", "Para llevar", "Express", "Accesible para Discapacitados" ]
 }

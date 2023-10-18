@@ -9,9 +9,10 @@ dm.fn.loadPage("listing", 'raw.html', {
 
         // Reset
         var lines = [];
+        var tbd = dsinfo.show || dsinfo.ids;
 
         // Fetch data
-        dsinfo.show.forEach(function (id, index) {
+        tbd.forEach(function (id, index) {
 
             //
             dm.fn.fetchEntry(ds, id, function (raw) {
@@ -26,7 +27,7 @@ dm.fn.loadPage("listing", 'raw.html', {
                     lines.push(fmtd);
 
                     //
-                    if (lines.length >= dsinfo.show.length) {
+                    if (lines.length >= tbd.length) {
 
                         // FIll
                         dm.fn.showText("entries", lines.join(''));
@@ -94,7 +95,7 @@ dm.fn.loadPage("listing", 'raw.html', {
                 break;
 
             case "Preferido":
-                list = dsinfo.show;
+                list = dsinfo.show || dsindo.ids;
                 category = null;
                 break;
 

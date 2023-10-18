@@ -3,8 +3,9 @@ dm.fn.loadDataset("events", {
 
     title: "Eventos",
 
-    "ids": ["1"],
-    "show": ["1"],
+    "ids": ["2"],
+
+    "category": ["Comunidad", "Gratis", "Familiar", "Expo"],
 
     buildDetail: function (data, cb) {
 

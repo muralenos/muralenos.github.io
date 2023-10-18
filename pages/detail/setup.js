@@ -36,11 +36,9 @@ dm.fn.loadPage("detail", 'raw.html', {
             var image = null;
             if (owner.image) {
                 image = entryinfo.URL + "/"  + owner.image;
-            } else {
-                image = "images/clear.gif";
             }
             dm.fn.showText("owner", owner.name || '');
-            dm.fn.showImage("ownerimage", image || '');
+            dm.fn.showImage("ownerimage", image || "images/clear.gif");
 
             //
             if (dm.showCarousel) {
@@ -66,7 +64,7 @@ dm.fn.loadPage("detail", 'raw.html', {
         var image = null;
         if (entry.image) {
             image = "pages/" + ds + "/entry" + id + "/" + entry.image;
-            image = '<img src="' + image + '" class="img-fluid" alt="#">';
+            image = '<img src="' + image + '" class="img-fluid">';
         }
 
         // Fill
