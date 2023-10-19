@@ -23,6 +23,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.ti-space:before {
+	content: "....";
+}
 .ti-wand:before {
 	content: "\e600";
 }

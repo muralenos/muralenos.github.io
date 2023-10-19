@@ -598,7 +598,7 @@ var dm = {
                             // 
                             Object.keys(entry.hours).forEach(function (day) {
                                 var row = entry.hours[day];
-                                line += '<tr><td>' + day + '</td><td>&nbsp;&nbsp;</td><td>' + row[0] + '</td><td>-</td><td>' + row[1] + '</td></tr>';
+                                line += '<tr><td><span class="ti-space"></span></td><td>' + day + '</td><td>&nbsp;&nbsp;</td><td>' + row[0] + '</td><td>-</td><td>' + row[1] + '</td></tr>';
                             });
 
                             line += "</table></li>";
@@ -608,7 +608,7 @@ var dm = {
 
                         if (entry.menu) {
 
-                            var menuref = "dm.fn.showPage('menu','food','" + id + "')";
+                            var menuref = "dm.fn.showPage('menu','" + ds + "','" + id + "')";
                             var line = "<li><a";
                             line += ' onclick="' + menuref + '">';
                             line += '<span class="fa-solid fa-table-list"></span>';

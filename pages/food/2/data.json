@@ -26,10 +26,43 @@
   },
   "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d982.3712292665274!2d-84.09198956564067!3d9.97674296095177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e58a85539a63%3A0x23d14e545b7178cb!2sSoda%20Eli.%20%22El%20Sabor%20de%20Mingo%22!5e0!3m2!1sen!2scr!4v1697146215862!5m2!1sen!2scr",
   "options": [ "Comedor", "Para llevar" ],
-  "menu": [
-    "Arroz",
-    "3000",
-    "Taco",
-    "2000"
-  ]
+  "menu": {
+    "Entree": [
+      {
+        "name": "Bruschetta",
+        "price": "3200",
+        "desc": "lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd  seofi a efhfiufhdfpuid pgdguisd gsdgdh gdguisdh gduifgh dfgiuh lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd "
+      },
+      {
+        "name": "Breadsticks",
+        "price": "1000",
+        "desc": "lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd"
+      }
+    ],
+    "Main Dishes": [
+      {
+        "name": "Casado",
+        "price": "3200",
+        "desc": "lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd"
+      },
+      {
+        "name": "Arroz con Pollo",
+        "price": "12000",
+        "desc": "lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd"
+      }
+    ],
+    "Dessert": [
+      {
+        "name": "Arroz con Leche",
+        "price": "3200",
+        "desc": "lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd"
+      },
+      {
+        "name": "Flan",
+        "price": "1000",
+        "desc": "lsdkfjsdlkfjsdlfkjsfls flskfjsldfkj sdflksd fsldkfj sd"
+      }
+
+    ]
+  }
 }
