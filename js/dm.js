@@ -626,10 +626,27 @@ var dm = {
 
                     // Do we have?
                     if (lines.length) {
-                        gend = gend.replace("$$details$$", "<ul>" + lines.join('') + "</ul>");
+                        lines =  "<ul>" + lines.join('') + "</ul>";
                     } else {
-                        gend = gend.replace("$$details$$", "");
+                        lines = "";
                     }
+
+                    // Options
+                    if (entry.options) {
+                        //
+                        lines += '<div class="row"><hr/>';
+                        //
+                        entry.options.forEach(function (option) {
+                            //
+                            lines += '<div class="col-md-4"><label class="custom-checkbox"><span class="ti-check-box"></span><span class="custom-control-description">';
+                            lines += option;
+                            lines += '</span></label></div>';
+                        });
+                        lines += '</div>';
+                    }                    
+
+                    // Fill
+                    gend = gend.replace("$$details$$", lines);
 
                     //
                     gend = gend.replaceAll("\r", "");
