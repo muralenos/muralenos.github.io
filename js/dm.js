@@ -476,7 +476,11 @@ var dm = {
                                 // Set
                                 var list = [prefix + entry.image];
                                 entry.carousel.forEach(function (name) {
-                                    list.push(prefix + name);
+                                    if (name.indexOf(".") == -1) {
+                                        list.push(prefix + name + ".jpg");
+                                    } else {
+                                        list.push(prefix + name);
+                                    }
                                 });
                                 list.forEach(function (path) {
                                     image += '<img src="' + path + '" alt="">';

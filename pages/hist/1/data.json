@@ -1,39 +1,12 @@
 {
   "title": "Mural Historico/Cultural",
   "desc": "La historia de Santo Domingo en lozetas",
+  "post": "La historia de Santo Domingo empezando con el pueblo indigena de Toyopan, incluyendo la cultura que nos hace el mejor canton en Costa Rica",
   "image": "base.jpg",
-  "imagewho": "",
-  "carousel": [],
+  "carousel": [ "DSC01226", "DSC01227", "DSC01228", "DSC01229", "DSC01230", "DSC01231", "DSC01232", "DSC01233", "DSC01234", "DSC01235", "DSC01236", "DSC01237", "DSC01238", "DSC01239", "DSC01240", "DSC01241", "DSC01242", "DSC01242-2", "DSC01243", "DSC01244", "DSC01245", "DSC01246" ],
   "address": {
     "street1": "Carretera a Santo Tomas, 75 mts oeste de la Calle Lencha",
-    "street2": "",
-    "mhood": "",
-    "district": "",
-    "canton": "Santo Domingo",
-    "province": ""
+    "canton": "Santo Domingo"
   },
-  "phone": "",
-  "whatsapp": "",
-  "owner": {
-    "name": "",
-    "image": "owner.jpg"
-  },
-  "url": "",
-  "date": "",
-  "hours": {
-    "mon": [ "", "" ],
-    "tue": [ "", "" ],
-    "wed": [ "", "" ],
-    "thu": [ "", "" ],
-    "fri": [ "", "" ],
-    "sat": [ "", "" ],
-    "sun": [ "", "" ]
-  },
-  "gps": {
-    "lat": 0,
-    "lng": 0
-  },
-  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3929.4924787958093!2d-84.08647508092041!3d9.976116152436123!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e5045a4444cd%3A0xbd2df0ba0c6f2d85!2sMural%20Hist%C3%B3rico%20Cultural%20de%20Santo%20Domingo!5e0!3m2!1sen!2scr!4v1697502067916!5m2!1sen!2scr",
-  "text": "",
-  "options": []
+  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3929.4924787958093!2d-84.08647508092041!3d9.976116152436123!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e5045a4444cd%3A0xbd2df0ba0c6f2d85!2sMural%20Hist%C3%B3rico%20Cultural%20de%20Santo%20Domingo!5e0!3m2!1sen!2scr!4v1697502067916!5m2!1sen!2scr"
 }
