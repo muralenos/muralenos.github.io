@@ -75,7 +75,7 @@ dm.fn.loadPage("listing", 'raw.html', {
         //
         var pattarray = null;
         if (patt) {
-            pattarray = patt.split(' ');
+            pattarray = patt.toLowerCase().split(' ');
         }
 
         // Get dataset
