@@ -469,7 +469,7 @@ var dm = {
                                 // Reset
                                 showimage = false;
                                 // Build carousel
-                                var height = dm.fn.isWide() ? (window.screen.height / 2) + "px;" : '200px';
+                                var height = dm.fn.isWide() ? (window.screen.height / 2) + "px;" : '300px';
                                 //var height = (window.screen.height / 2) + "px;";
                                 var width = dm.fn.isWide() ? '12' : '4';
                                 image = '<div id="carousel" style="width:100%; height:' + height + '" class="col-md-' + width + '">';
