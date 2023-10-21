@@ -321,7 +321,7 @@ var dm = {
 
         },
 
-        fetch: function (url, cb) {
+        fetch: function (url, cb, fcb) {
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -336,7 +336,14 @@ var dm = {
                     xhr.setRequestHeader("Authorization", "Basic " + btoa(""));
                 },
                 success: function (data) {
-                    cb(data);
+                    if (cb) cb(data);
+                },
+                error: function () {
+                    if (fcb) {
+                        fcb();
+                    } else {
+                        if (cb) cb(data);
+                    }
                 }
             })
         },
@@ -415,7 +422,32 @@ var dm = {
                             // Save
                             dsinfo.data[id] = data;
 
-                            cb(data);
+                            // Call extra PRE
+                            dm.fn.fetch(data.url + "/pre.html", function (text) {
+                                // Add
+                                data.pre = dm.fn.getBody(text);
+                                // Call extra POST
+                                dm.fn.fetch(data.url + "/post.html", function (text) {
+                                    // Add
+                                    data.post = dm.fn.getBody(text);
+                                    //
+                                    cb(data);
+                                }, function () {
+                                    cb(data);
+                                });
+                            }, function () {
+                                // Call extra POST
+                                dm.fn.fetch(data.url + "/post.html", function (text) {
+                                    // Add
+                                    data.post = dm.fn.getBody(text);
+                                    //
+                                    cb(data);
+                                }, function () {
+                                    cb(data);
+                                });
+                            });
+
+                            //cb(data);
                         });
                     }
                 } else {
@@ -425,6 +457,33 @@ var dm = {
                 cb({});
             }
 
+        },
+
+        getBody: function (text) {
+            // 
+            var ans = null;
+            //
+            if (text) {
+                // Find start of <BODY>
+                var pos = text.indexOf("<body");
+                if (pos != -1) {
+                    // Remove
+                    text = text.substr(pos + 5);
+                    // Find end of <BODY>
+                    pos = text.indexOf(">");
+                    if (pos != -1) {
+                        // Remove
+                        text = text.substr(pos + 1);
+                        // Find start of </BODY>
+                        pos = text.indexOf("</body");
+                        if (pos != -1) {
+                            // Remove
+                            text = text.substr(0, pos);
+                        }
+                    }
+                }
+            }
+            return ans || '';
         },
 
         buildEntry: function (id, style, cb, dsp) {
@@ -589,8 +648,8 @@ var dm = {
                                 var date = entry.date || {};
                                 if (date.start) line += "De " + dm.fn.formatDate(date.start);
                                 if (date.end) line += " A " + dm.fn.formatDate(date.end);
-                            }                            
-                            line +="</p></li>";
+                            }
+                            line += "</p></li>";
 
                             lines.push(line);
                         }
@@ -626,7 +685,7 @@ var dm = {
 
                     // Do we have?
                     if (lines.length) {
-                        lines =  "<ul>" + lines.join('') + "</ul>";
+                        lines = "<ul>" + lines.join('') + "</ul>";
                     } else {
                         lines = "";
                     }
@@ -642,8 +701,43 @@ var dm = {
                             lines += option;
                             lines += '</span></label></div>';
                         });
+
+                        //
+                        if (entry.wheelchair) {
+                            //
+                            lines += '<div class="col-md-4"><label class="custom-checkbox"><span class="ti-wheelchair"></span><span class="custom-control-description">';
+                            lines += entry.wheelchair;
+                            lines += '</span></label></div>';
+                        }
+
                         lines += '</div>';
-                    }                    
+                    }
+
+                    // Languages
+                    if (entry.languages) {
+                        var value = entry.languages;
+                        if (!Array.isArray(value)) {
+                            value = [value];
+                        }
+
+                        //
+                        lines += '<div class="row"><hr/>';
+
+                        //
+                        value.forEach(function (lang) {
+                            //
+                            var def = dm.langnames[lang];
+                            if (def) {
+                                //
+                                lines += '<div class="col-md-4"><label><span class="lang-icon lang-icon-' + lang + '"></span><span class="custom-control-description">';
+                                lines += def.nameNative;
+                                lines += '</span></label></div>';
+                            }
+
+                        });
+
+                        lines += '</div>';
+                    }
 
                     // Fill
                     gend = gend.replace("$$details$$", lines);
