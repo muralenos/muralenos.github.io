@@ -691,7 +691,7 @@ var dm = {
                     }
 
                     // Options
-                    if (entry.options) {
+                    if (entry.options && dm.fn.contains(style, "large")) {
                         //
                         lines += '<div class="row"><hr/>';
                         //
@@ -714,7 +714,7 @@ var dm = {
                     }
 
                     // Languages
-                    if (entry.languages) {
+                    if (entry.languages && dm.fn.contains(style, "large")) {
                         var value = entry.languages;
                         if (!Array.isArray(value)) {
                             value = [value];
