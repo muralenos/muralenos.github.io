@@ -14,5 +14,6 @@
   },
   "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3929.472494616968!2d-84.08597340727732!3d9.977772600650038!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e4da4be413df%3A0xdc793c4b155bc098!2zRG_DsWEgVGluYSAjMg!5e0!3m2!1sen!2scr!4v1697148073472!5m2!1sen!2scr",
   "options": [ "Comedor", "Para llevar", "Express" ],
-  "languages": ["es", "en", "fr"]
+  "wheelchair": "Si",
+  "languages": [ "es", "en", "fr" ]
 }

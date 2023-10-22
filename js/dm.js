@@ -690,53 +690,55 @@ var dm = {
                         lines = "";
                     }
 
-                    // Options
-                    if (entry.options && dm.fn.contains(style, "large")) {
-                        //
-                        lines += '<div class="row"><hr/>';
-                        //
-                        entry.options.forEach(function (option) {
+                    if (dm.fn.contains(style, "large")) {
+                        // Options
+                        if (entry.options) {
                             //
-                            lines += '<div class="col-md-4"><label class="custom-checkbox"><span class="ti-check-box"></span><span class="custom-control-description">';
-                            lines += option;
-                            lines += '</span></label></div>';
-                        });
-
-                        //
-                        if (entry.wheelchair) {
+                            lines += '<div class="row"><hr/>';
                             //
-                            lines += '<div class="col-md-4"><label class="custom-checkbox"><span class="ti-wheelchair"></span><span class="custom-control-description">';
-                            lines += entry.wheelchair;
-                            lines += '</span></label></div>';
-                        }
-
-                        lines += '</div>';
-                    }
-
-                    // Languages
-                    if (entry.languages && dm.fn.contains(style, "large")) {
-                        var value = entry.languages;
-                        if (!Array.isArray(value)) {
-                            value = [value];
-                        }
-
-                        //
-                        lines += '<div class="row"><hr/>';
-
-                        //
-                        value.forEach(function (lang) {
-                            //
-                            var def = dm.langnames[lang];
-                            if (def) {
+                            entry.options.forEach(function (option) {
                                 //
-                                lines += '<div class="col-md-4"><label><span class="lang-icon lang-icon-' + lang + '"></span><span class="custom-control-description">';
-                                lines += def.nameNative;
+                                lines += '<div class="col-md-4"><label class="custom-checkbox"><span class="ti-check-box"></span><span class="custom-control-description">';
+                                lines += option;
+                                lines += '</span></label></div>';
+                            });
+
+                            //
+                            if (entry.wheelchair) {
+                                //
+                                lines += '<div class="col-md-4"><label class="custom-checkbox"><span class="ti-wheelchair"></span><span class="custom-control-description">';
+                                lines += entry.wheelchair;
                                 lines += '</span></label></div>';
                             }
 
-                        });
+                            lines += '</div>';
+                        }
 
-                        lines += '</div>';
+                        // Languages
+                        if (entry.languages) {
+                            var value = entry.languages;
+                            if (!Array.isArray(value)) {
+                                value = [value];
+                            }
+
+                            //
+                            lines += '<div class="row"><hr/>';
+
+                            //
+                            value.forEach(function (lang) {
+                                //
+                                var def = dm.langnames[lang];
+                                if (def) {
+                                    //
+                                    lines += '<div class="col-md-4"><label><span class="lang-icon lang-icon-' + lang + '"></span><span class="custom-control-description">';
+                                    lines += def.nameNative;
+                                    lines += '</span></label></div>';
+                                }
+
+                            });
+
+                            lines += '</div>';
+                        }
                     }
 
                     // Fill
