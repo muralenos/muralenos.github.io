@@ -1,7 +1,8 @@
 // Data
 dm.fn.loadDataset("hist", {
 
-    title: "Cultural",
+    "title": "Historico/Cultural",
+    "shorttitle": "Hist./Cult.",
 
     "ids": ["1"],
     "show": ["1"],

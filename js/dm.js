@@ -15,6 +15,7 @@ var dm = {
             info = dm.datasets[ds] || {};
             // Save fixed
             info.title = data.title || ds;
+            info.shorttitle = data.shorttitle || '';
             info.ids = data.ids || [];
             info.category = data.category || [];
             info.show = data.show || data.ids;
@@ -278,6 +279,27 @@ var dm = {
                 ele.innerHTML = (text || '').replaceAll("ñ", "&#241;").replaceAll("Ñ", "&#209;");
             }
 
+        },
+
+        showTitle: function (dsinfo, cb) {
+
+            //
+            var title = dsinfo.title;
+            if (!dm.fn.isWide()) {
+                title = dsinfo.shorttitle || title;
+            }
+
+            //
+            if (dm.static) {
+                title = "";
+                dm.fn.addClass("pagetitle", "fa-solid fa-location-dot");
+            } else {
+                dm.fn.removeClass("pagetitle", "fa-solid fa-location-dot");
+            }
+
+            //
+            dm.fn.showText("pagetitle", title);
+            if (cb) dm.fn.setOnClick("pagetitle", cb);
         },
 
         showImage: function (cmp, src) {

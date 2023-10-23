@@ -4,8 +4,7 @@ dm.fn.loadPage("listing", 'raw.html', {
     load: function (pageinfo, ds, dsinfo, id, entryinfo, cb) {
 
         //
-        dm.fn.showText("pagetitle", dsinfo.title);
-        dm.fn.setOnClick("pagetitle", dm.clicks.goBack);
+        dm.fn.showTitle(dsinfo, cb);
 
         // Reset
         var lines = [];

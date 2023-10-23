@@ -4,14 +4,7 @@ dm.fn.loadPage("detail", 'raw.html', {
     load: function (pageinfo, ds, dsinfo, id, entryinfo, cb) {
 
         //
-        var title = dsinfo.title;
-        if (dm.static) {
-            title = "";
-            dm.fn.addClass("pagetitle", "fa-solid fa-location-dot");
-        } else {
-            dm.fn.removeClass("pagetitle", "fa-solid fa-location-dot");
-        }
-        dm.fn.showText("pagetitle", title);
+        dm.fn.showTitle(dsinfo, cb);
 
         // Get info
         dm.fn.fetchEntry(ds, id, function (info) {
