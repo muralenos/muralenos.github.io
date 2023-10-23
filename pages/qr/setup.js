@@ -10,9 +10,9 @@ dm.fn.loadPage("qr", "raw.html", {
     var entry = dm.history[dm.history.length - 2]; 
 
     //
-    var url = "https://dondemingo.com" + "?name=" + entry.name + "&ds="+(entry.ds ||'') + "&id=" + (entry.id || '');
+        var url = "https://dondemingo.com" + "?name=" + entry.name + "&ds=" + (entry.ds || '') + "&id=" + (entry.id || '');
 
-    $('#qrcode').qrcode(url);
+        $('#qrcode').qrcode(url);
 
     if (cb) cb();
 
