@@ -1,0 +1,17 @@
+{
+  "title": "Dia de la Mascarada 2023",
+  "desc": "Tracicional Costarricense",
+  "image": "base.jpg",
+  "pre": "Un año más les traemos la celebración de esta importante fecha !! <br/>Acompáñenos al paso de los gigantes más grandes de Costa Rica por el barrio colonial de Santo Domingo!!<br/>La cita es el martes 31 de octubre a las 7:00pm saliendo del parque de Santo Domingo para celebrar el día de la mascarada tradicional costarricense !!",
+  "category": [ "Familiar", "Comunidad", "Gratis" ],
+  "address": {
+    "street1": "Biblioteca Pública",
+    "canton": "Santo Domingo"
+  },
+  "date": "2023-10-31",
+  "hours": {
+    "": [ "7PM", "Final" ]
+  },
+  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d367.96993642752545!2d-84.090623982382!3d9.979847021825433!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e4d9de9317c9%3A0x360dc72af53c276a!2sSanto%20Domingo%20Central%20Park!5e0!3m2!1sen!2scr!4v1698076024039!5m2!1sen!2scr",
+  "url": "https://www.facebook.com/groups/2308524729421420/permalink/3540631049544109/"
+}
