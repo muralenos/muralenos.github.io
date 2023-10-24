@@ -698,7 +698,7 @@ var dm = {
                         var line = "<li>";
                         line += '<a href="' + entry.url + '" target="_blank">';
                         line += '<span class="fa-solid fa-cloud"></span>';
-                        line += "<p>" + entry.url + "</p></a></li>";
+                        line += "<p>" + (entry.urllabel || entry.url) + "</p></a></li>";
 
                         lines.push(line);
                     }

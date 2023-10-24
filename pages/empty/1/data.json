@@ -22,6 +22,7 @@
     "image": "owner.jpg"
   },
   "url": "",
+  "urllabel": "",
   "date": "",
   "hours": {
     "mon": [ "", "" ],
@@ -32,14 +33,9 @@
     "sat": [ "", "" ],
     "sun": [ "", "" ]
   },
-  "gps": {
-    "lat": 0,
-    "lng": 0
-  },
   "map": "",
   "text": "",
   "options": [],
-  "m": null,
   "wheelchair": "",
   "languages": []
 }
