@@ -477,7 +477,11 @@ var dm = {
                             data = JSON.parse(data);
                             // Set
                             data.URL = "pages/" + ds + "/" + id;
-                            data.imageURL = data.URL + "/" + data.image;
+                            if (data.image) {
+                                data.imageURL = data.URL + "/" + data.image;
+                            } else {
+                                data.imageURL = "images/clear.gif";
+                            }
                             data.callPAGE = "dm.fn.showPage('detail','" + ds + "','" + id + "');";
                             // Save
                             dsinfo.data[id] = data;
@@ -832,9 +836,11 @@ var dm = {
             //
             var line = '';
 
-            line += '<div class="tour-stat stat" ><img src="' + data.imageURL + '" class="tour-stat stat"></img></div>';
+            line += '<div class="tour-stat stat">';
 
-            line += '<div class="tour-stat stat"><h6>' + data.title + '</h6></div>';
+            if (data.imageURL) line += '<img src="' + data.imageURL + '" class="tour-stat stat"></img>';
+
+            line += '</div><div class="tour-stat stat"><h6>' + data.title + '</h6></div>';
 
             line += '<div class="tour-stat stat"><p class="reserve-description">' + data.desc + '</div>';
 
