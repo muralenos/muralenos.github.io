@@ -75,7 +75,22 @@ var dm = {
             return (text || '').toLowerCase();
         },
 
-        pickRandom: function (ds, picked) {
+        pickRandomDataset: function () {
+
+            // Get list
+            var list = Object.keys(dm.datasets);
+            dm.fn.arrayRemove(list, "blog");
+
+            //
+            var rnd = Math.random();
+            var raw = rnd * list.length;
+            var idx = Math.floor(raw);
+
+            //
+            return list[idx];
+        },
+
+        pickRandomEntry: function (ds, picked) {
 
             //
             var ans = null;
@@ -94,8 +109,13 @@ var dm = {
 
                 // Get from list
                 var next = dsinfo.ids[idx];
-                if (picked.indexOf(next) == -1) {
+
+                // 
+                var prev = "ds:" + next;
+
+                if (picked.indexOf(prev) == -1) {
                     ans = next;
+                    picked.push(prev);
                 }
 
                 // One less
@@ -391,6 +411,21 @@ var dm = {
 
         },
 
+        getDatasetCount: function (ds) {
+
+            // Default
+            var ans = null;
+            // Get dataset
+            var dsinfo = dm.datasets[ds];
+            // Valid?
+            if (dsinfo) {
+                ans = dsinfo.ids.length;
+                if (ans) ans += " Listado" + (ans > 1 ? "s" : "");
+            }
+            return ans;
+
+        },
+
         fetchAll: function (ds, id, cb) {
 
             //
@@ -445,31 +480,41 @@ var dm = {
                             dsinfo.data[id] = data;
 
                             // Call extra PRE
-                            dm.fn.fetch(data.url + "/pre.html", function (text) {
-                                // Add
-                                data.pre = dm.fn.getBody(text);
-                                // Call extra POST
-                                dm.fn.fetch(data.url + "/post.html", function (text) {
+                            if (data.prehtml) {
+                                dm.fn.fetch(data.url + "/" + data.prehtml, function (text) {
                                     // Add
-                                    data.post = dm.fn.getBody(text);
-                                    //
-                                    cb(data);
+                                    data.pre = dm.fn.getBody(text);
+                                    // Call extra POST
+                                    if (data.posthtml) {
+                                        dm.fn.fetch(data.url + "/" + data.posthtml, function (text) {
+                                            // Add
+                                            data.post = dm.fn.getBody(text);
+                                            //
+                                            cb(data);
+                                        }, function () {
+                                            cb(data);
+                                        });
+                                    } else {
+                                        cb(data);
+                                    }
                                 }, function () {
-                                    cb(data);
+                                    if (data.posthtml) {
+                                        // Call extra POST
+                                        dm.fn.fetch(data.url + "/" + data.posthtml, function (text) {
+                                            // Add
+                                            data.post = dm.fn.getBody(text);
+                                            //
+                                            cb(data);
+                                        }, function () {
+                                            cb(data);
+                                        });
+                                    } else {
+                                        cb(data);
+                                    }
                                 });
-                            }, function () {
-                                // Call extra POST
-                                dm.fn.fetch(data.url + "/post.html", function (text) {
-                                    // Add
-                                    data.post = dm.fn.getBody(text);
-                                    //
-                                    cb(data);
-                                }, function () {
-                                    cb(data);
-                                });
-                            });
-
-                            //cb(data);
+                            } else {
+                                cb(data);
+                            }
                         });
                     }
                 } else {
@@ -586,7 +631,7 @@ var dm = {
                     if (addrblock) {
                         addr = dm.fn.join(", ", addrblock.street1, addrblock.street2, addrblock.nhood, addrblock.district, addrblock.canton, addrblock.province);
 
-                        var onclick = "dm.fn.showPage('detail', 'food', '" + id + "')";
+                        var onclick = "dm.fn.showPage('detail', '" + ds + "', '" + id + "')";
                     }
 
                     var phone = entry.phone || '';
@@ -611,7 +656,7 @@ var dm = {
                     //
                     var oc = null;
                     if (!dm.fn.contains(style, "noclick")) {
-                        oc = "dm.fn.showPage('detail','food','" + id + "')";
+                        oc = "dm.fn.showPage('detail','" + ds + "','" + id + "')";
                     }
                     gend = gend.replace("$$onclick$$", oc || '');
 
@@ -885,6 +930,13 @@ var dm = {
             // Convert
             return dm.fn.capWord(new Date(date).toLocaleDateString('es', { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
 
+        },
+
+        arrayRemove: function (array, value) {
+            var index = array.indexOf(value);
+            if (index !== -1) {
+                array.splice(index, 1);
+            }
         }
 
     },

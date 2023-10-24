@@ -8,10 +8,19 @@ dm.fn.loadPage("intro", 'raw.html', {
         dm.fn.setOnClick("pagetitle");
 
         dm.fn.showText("histtitle", dm.fn.getDatasetTitle("hist"));
+        dm.fn.showText("histcount", dm.fn.getDatasetCount("hist"));
+
         dm.fn.showText("foodtitle", dm.fn.getDatasetTitle("food"));
+        dm.fn.showText("foodcount", dm.fn.getDatasetCount("food"));
+
         dm.fn.showText("othertitle", dm.fn.getDatasetTitle("other"));
+        dm.fn.showText("othercount", dm.fn.getDatasetCount("other"));
+
         dm.fn.showText("sporttitle", dm.fn.getDatasetTitle("sports"));
+        dm.fn.showText("sportcount", dm.fn.getDatasetCount("sports"));
+
         dm.fn.showText("eventtitle", dm.fn.getDatasetTitle("events"));
+        dm.fn.showText("eventcount", dm.fn.getDatasetCount("events"));
 
         if (cb) cb();
 
@@ -31,20 +40,36 @@ dm.fn.loadPage("intro", 'raw.html', {
         // Fill each
         tbd.forEach(function (inst, index) {
 
-            // Pick one
-            var nxt = dm.fn.pickRandom(ds, picked);
-            // Save
-            tbd[index] = nxt;
-            // and no repeats
-            if (nxt) picked.push(nxt);
+            // Setup
+            var nxt = null;
+
+            // Loop
+            while (!nxt) {
+
+                // Pick dataset
+                var ds = dm.fn.pickRandomDataset();
+
+                // Pick one
+                nxt = dm.fn.pickRandomEntry(ds, picked);
+
+                // Did we get one?
+                if (nxt) {
+                    // Save
+                    tbd[index] = {
+                        ds: ds,
+                        id: nxt
+                    };
+                }
+            }
 
         });
 
         // And do
-        tbd.forEach(function (nxt, index) {
+        tbd.forEach(function (entry, index) {
 
             //
-            var id = nxt;
+            var ds = entry.ds;
+            var id = entry.id;
             var target = "$$feat" + index + "$$";
             var gend = "";
 
@@ -57,7 +82,7 @@ dm.fn.loadPage("intro", 'raw.html', {
                     data = data.replace(target, gend);
 
                     //
-                    done.push(nxt);
+                    done.push(entry);
 
                     // Done?
                     if (done.length >= tbd.length) {
@@ -66,7 +91,7 @@ dm.fn.loadPage("intro", 'raw.html', {
                         if (cb) cb(data);
                     }
 
-                });
+                }, ds);
 
             } else {
 
@@ -74,7 +99,7 @@ dm.fn.loadPage("intro", 'raw.html', {
                 data = data.replace(target, gend);
 
                 //
-                done.push(nxt);
+                done.push(entry);
 
                 // Done?
                 if (done.length >= tbd.length) {
