@@ -30,13 +30,16 @@ var dm = {
 
         loadAllDatasets: function () {
 
-            // Loop thru datasets
-            Object.keys(dm.datasets).forEach(function (ds) {
+            setTimeout(function () {
+                // Loop thru datasets
+                Object.keys(dm.datasets).forEach(function (ds) {
 
-                //
-                setTimeout(dm.fn.loadOneDataset, 250, ds);
+                    //
+                    setTimeout(dm.fn.loadOneDataset, 250, ds);
 
-            });
+                });
+
+            }, 1000);
 
         },
 
@@ -928,7 +931,7 @@ var dm = {
             // Assure time
             if (date.indexOf(":") == -1) date += " 0:0:0";
             // Convert
-            return dm.fn.capWord(new Date(date).toLocaleDateString('es', { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
+            return dm.fn.capWord(new Date(date).toLocaleDateString('es', { weekday: "long", year: "numeric", month: "long", day: "numeric" })).replaceAll(" De ", " de ");
 
         },
 
