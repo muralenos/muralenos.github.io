@@ -5,7 +5,7 @@ dm.module.upload = {
     repo: "https://api.github.com/repos/muralenos/muralenos.github.io/contents/",
 
     // My key
-    API_KEY: "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",
+    API_KEY: "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x",
 
     prep: function (cmp) {
         // TBD 
