@@ -82,7 +82,6 @@ var dm = {
 
             // Get list
             var list = Object.keys(dm.datasets);
-            dm.fn.arrayRemove(list, "blog");
 
             //
             var rnd = Math.random();
@@ -174,7 +173,6 @@ var dm = {
             if (dm.fn.isWide()) {
 
                 dm.fn.buttonShowHide("btnwho", ds != 'other' && id != '1' && !dm.static);
-                dm.fn.buttonShowHide("btnblog", ds != 'blog' && !dm.static);
 
                 dm.fn.buttonShowHide("btnx", false);
 
@@ -182,7 +180,6 @@ var dm = {
             } else {
 
                 dm.fn.buttonShowHide("btnwho", false);
-                dm.fn.buttonShowHide("btnblog", false);
                 dm.fn.buttonShowHide("btnback", name == 'qr');
 
                 dm.fn.buttonShowHide("btnx", dm.history.length > 1);
