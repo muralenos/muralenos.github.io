@@ -946,6 +946,27 @@ var dm = {
             if (index !== -1) {
                 array.splice(index, 1);
             }
+        },
+
+        loadJS: function (url, cb, async = true) {
+
+            let scriptEle = document.createElement("script");
+
+            scriptEle.setAttribute("src", url);
+            scriptEle.setAttribute("type", "text/javascript");
+            scriptEle.setAttribute("async", async);
+
+            document.body.appendChild(scriptEle);
+
+            // success event 
+            scriptEle.addEventListener("load", () => {
+                if (cb) cb(true);
+            });
+            // error event
+            scriptEle.addEventListener("error", (ev) => {
+                if (cb) cb(false);
+            });
+
         }
 
     },
@@ -962,8 +983,17 @@ var dm = {
         goBack: "dm.fn.goBack()",
         goLanding: "dm.fn.goLanding()"
 
-    }
+    },
+
+    module: { } 
 };
 
 // Parse params
 dm.urlParams = new URLSearchParams(window.location.search);
+
+// Do extra load
+var extra = dm.urlParams.getAll("module");
+extra.forEach(function (name) {
+    // Load
+    dm.fn.loadJS("modules/" + name + ".js");
+});
