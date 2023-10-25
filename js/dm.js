@@ -987,10 +987,3 @@ var dm = {
 
 // Parse params
 dm.urlParams = new URLSearchParams(window.location.search);
-
-// Do extra load
-var extra = dm.urlParams.getAll("module");
-extra.forEach(function (name) {
-    // Load
-    dm.fn.loadJS("modules/" + name + ".js");
-});
