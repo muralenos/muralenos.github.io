@@ -3,9 +3,9 @@ dm.fn.loadDataset("events", {
 
     title: "Eventos",
 
-    "ids": ["3", "4", "2"],
+    "ids": ["3", "4", "5", "2"],
 
-    "category": ["Comunidad", "Gratis", "Familiar", "Expo"],
+    "category": ["Comunidad", "Mascaradas", "Gratis", "Familiar", "Expo"],
 
     "random": true,
 
