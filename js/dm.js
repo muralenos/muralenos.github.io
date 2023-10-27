@@ -664,9 +664,9 @@ var dm = {
 
                     //
                     var oc = null;
-                    if (!dm.fn.contains(style, "noclick")) {
+                    //if (!dm.fn.contains(style, "noclick")) {
                         oc = "dm.fn.showPage('detail','" + ds + "','" + id + "')";
-                    }
+                    //}
                     gend = gend.replace("$$onclick$$", oc || '');
 
                     // Lines
