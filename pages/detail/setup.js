@@ -107,7 +107,7 @@ dm.fn.loadPage("detail", 'raw.html', {
                         if (entryx) {
 
                             // Build 
-                            dm.fn.buildEntry(entryx, "small title image", function (gend) {
+                            dm.fn.buildEntry(entryx, "small title image noclick", function (gend) {
 
                                 // Stuff
                                 data = data.replace(target, gend);
