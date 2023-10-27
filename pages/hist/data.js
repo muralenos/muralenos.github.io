@@ -5,7 +5,9 @@ dm.fn.loadDataset("hist", {
     "shorttitle": "Hist./Cult.",
 
     "ids": ["1", "2", "3", "4" ],
-    "show": ["4", "1", "2", "3" ],
+    "show": ["4", "1", "2", "3"],
+
+    "random": true,
 
     buildDetail: function (data, cb) {
 

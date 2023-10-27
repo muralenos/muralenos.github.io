@@ -8,5 +8,6 @@
     "street1": "Frente al parque Central de Santo Domingo",
     "canton": "Santo Domingo"
   },
-  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d520.3879376559204!2d-84.08995421482783!3d9.979932734146015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e5e630fad351%3A0x8db191bc7c5d7586!2sIglesia%20del%20Rosario!5e0!3m2!1sen!2scr!4v1698329477015!5m2!1sen!2scr"
+  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d520.3879376559204!2d-84.08995421482783!3d9.979932734146015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e5e630fad351%3A0x8db191bc7c5d7586!2sIglesia%20del%20Rosario!5e0!3m2!1sen!2scr!4v1698329477015!5m2!1sen!2scr",
+  "near": [ "3" , "1"]
 }

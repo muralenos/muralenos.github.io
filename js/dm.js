@@ -22,9 +22,16 @@ var dm = {
             info.name = ds;
             info.data = {};
             info.root = "pages/" + ds + "/";
+            info.random = data.random;
+
             info.buildDetail = data.buildDetail || function (data, cb) { cb(); };
 
             dm.datasets[ds] = info;;
+
+            //
+            if (info.random) {
+                dm.randomdatasets.push(ds);
+            }
 
         },
 
@@ -81,7 +88,7 @@ var dm = {
         pickRandomDataset: function () {
 
             // Get list
-            var list = Object.keys(dm.datasets);
+            var list = dm.randomdatasets;
 
             //
             var rnd = Math.random();
@@ -364,6 +371,7 @@ var dm = {
         },
 
         fetch: function (url, cb, fcb) {
+
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -384,10 +392,11 @@ var dm = {
                     if (fcb) {
                         fcb();
                     } else {
-                        if (cb) cb(data);
+                        if (cb) cb("");
                     }
                 }
-            })
+            });
+
         },
 
         onLoad: function (cb) {
@@ -588,7 +597,6 @@ var dm = {
                     }
 
                     var image = null;
-                    delete dm.showCarousel;
                     if (entry.image && dm.fn.contains(style, "image")) {
                         // Default
                         var showimage = true;
@@ -617,9 +625,6 @@ var dm = {
                                 });
                                 //
                                 image += '</div>';
-
-                                //
-                                dm.showCarousel = true;
 
                             }
                         }
@@ -970,6 +975,10 @@ var dm = {
 
     datasets: {},
 
+    randomdatasets: [],
+
+    randomselected: "Todos",
+
     pages: {},
 
     history: [],
@@ -982,7 +991,7 @@ var dm = {
 
     },
 
-    module: { } 
+    module: {}
 };
 
 // Parse params

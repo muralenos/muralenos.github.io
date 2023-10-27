@@ -7,6 +7,8 @@ dm.fn.loadDataset("events", {
 
     "category": ["Comunidad", "Gratis", "Familiar", "Expo"],
 
+    "random": true,
+
     buildDetail: function (data, cb) {
 
         //

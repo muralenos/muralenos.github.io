@@ -6,7 +6,9 @@ dm.fn.loadDataset("sports", {
     "ids": ["1"],
     "show": ["1"],
 
-    "category": ["Soccer","Beisbol"],
+    "category": ["Soccer", "Beisbol"],
+
+    "random": true,
 
     buildDetail: function (data, cb) {
 

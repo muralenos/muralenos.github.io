@@ -9,5 +9,6 @@
     "district": "San Miguel",
     "canton": "Santo Domingo"
   },
-  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1964.6732160252413!2d-84.04283583787118!3d9.988222124727914!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e5b16b8a09f9%3A0x596f2f90fad00807!2sIglesia%20del%20Carmen!5e0!3m2!1sen!2scr!4v1698329160321!5m2!1sen!2scr"
+  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1964.6732160252413!2d-84.04283583787118!3d9.988222124727914!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e5b16b8a09f9%3A0x596f2f90fad00807!2sIglesia%20del%20Carmen!5e0!3m2!1sen!2scr!4v1698329160321!5m2!1sen!2scr",
+  "near":  ["4", "1"]
 }

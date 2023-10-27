@@ -6,7 +6,9 @@ dm.fn.loadDataset("food", {
     "ids": ["1", "2"],
     "show": ["1", "2"],
 
-    "category":["Soda","Pizza","Mariscos"],
+    "category": ["Soda", "Pizza", "Mariscos"],
+
+    "random": true,
 
     buildDetail: function (data, cb) {
 

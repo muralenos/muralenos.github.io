@@ -6,6 +6,8 @@ dm.fn.loadDataset("other", {
     "ids": ["1"],
     "show": ["1"],
 
+    "random": false,
+
     buildDetail: function (data, cb) {
 
         //

@@ -9,5 +9,6 @@
     "street1": "Frente a la Plaza de Futbol de Santo Domingo de Heredia",
     "canton": "Santo Domingo"
   },
-  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1964.715814444135!2d-84.08652336068268!3d9.981159031178729!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e4d8f6cd9b27%3A0x76e7be2e1b8c4a85!2sBas%C3%ADlica%20de%20Santo%20Domingo%20de%20Guzm%C3%A1n!5e0!3m2!1sen!2scr!4v1698328742315!5m2!1sen!2scr"
+  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1964.715814444135!2d-84.08652336068268!3d9.981159031178729!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e4d8f6cd9b27%3A0x76e7be2e1b8c4a85!2sBas%C3%ADlica%20de%20Santo%20Domingo%20de%20Guzm%C3%A1n!5e0!3m2!1sen!2scr!4v1698328742315!5m2!1sen!2scr",
+  "near":  ["2", "1"]
 }
