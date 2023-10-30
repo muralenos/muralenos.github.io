@@ -156,8 +156,9 @@
                 Object.keys(dm.datasets).forEach(function (dsx) {
                     //
                     var dsinfo = dm.datasets[dsx];
+                    var title = dsinfo.title.toLowerCase();
                     // Match?
-                    if (via == dsinfo.title || (via + "s") == dsinfo.title) {
+                    if (via === title || (via + "s") === title) {
 
                         // make call
                         name = "listing";
