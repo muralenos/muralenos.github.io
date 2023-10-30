@@ -144,7 +144,25 @@
             // 404?
             var url = dm.urlParams.get("url");
             if (url) {
-                alert(url);
+
+                // Default
+                var target = window.location.protocol + "//" + window.location.hostname;
+
+                // Get the wanted listing
+                var options = url.split("/");
+                if (options.length >= 2) {
+                    // Get
+                    var patt = options[1].toLowerCase();
+                    // See if there is one
+                    dm.datasets.forEach(function (dsinfo) {
+                        // Match?
+                        if (patt == dsinfo.title || (patt + "s") == dsinfo.title) {
+                            target += "?name=listing&ds=" + dsinfo.name + "&mode=float";
+                        }
+                    });
+                }
+
+                window.location.replace(target);
             }
 
             // Called?
