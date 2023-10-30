@@ -10,7 +10,9 @@
 
         var target = window.location.protocol + "//" + window.location.hostname + "/?via=" + encodeURIComponent(window.location.pathname);
 
-        window.location.href = target;
+        alert(target);
+
+        window.location.replace(target);
 
     </script>
 
