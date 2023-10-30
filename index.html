@@ -158,7 +158,7 @@
                     var dsinfo = dm.datasets[dsx];
                     var title = dsinfo.title.toLowerCase();
                     // Match?
-                    if (via === title || (via + "s") === title) {
+                    if (via === dsx || via === title || (via + "s") === title) {
 
                         // make call
                         name = "listing";
