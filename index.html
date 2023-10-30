@@ -144,25 +144,15 @@
             // 404?
             var url = dm.urlParams.get("via");
             if (url) {
-
-                // Default
-                var target = window.location.protocol + "//" + window.location.hostname;
-
-                // Get the wanted listing
-                var options = url.split("/");
-                if (options.length >= 2) {
-                    // Get
-                    var patt = options[1].toLowerCase();
-                    // See if there is one
-                    Object.keys(dm.datasets).forEach(function (ds) {
-                        //
-                        var dsinfo = dm.datasets[ds];
-                        // Match?
-                        if (patt == dsinfo.title || (patt + "s") == dsinfo.title) {
-                            target += "?name=listing&ds=" + ds + "&mode=float";
-                        }
-                    });
-                }
+                // See if there is one
+                Object.keys(dm.datasets).forEach(function (ds) {
+                    //
+                    var dsinfo = dm.datasets[ds];
+                    // Match?
+                    if (url == dsinfo.title || (url + "s") == dsinfo.title) {
+                        target += "?name=listing&ds=" + ds + "&mode=float";
+                    }
+                });
 
                 window.location.replace(target);
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+</head>
+
+<body>
+
+    <script>
+
+        //
+        var options = window.location.pathname.split("/");
+        //
+        var ref = null;
+        // Loop
+        options.forEach(function (key) {
+            // Anything?
+            if (key && !ref) {
+                ref = key;
+            }
+        })
+
+        //
+        var target = window.location.protocol + "//" + window.location.hostname;
+        if (ref) {
+            target += "/?via=" + ref.toLowerCase();
+        }
+
+        window.location.replace(target);
+
+    </script>
+
+</body>
+
+</html>
