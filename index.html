@@ -154,10 +154,12 @@
                     // Get
                     var patt = options[1].toLowerCase();
                     // See if there is one
-                    dm.datasets.forEach(function (dsinfo) {
+                    Pbject.keys(dm.datasets).forEach(function (ds) {
+                        //
+                        var dsinfo = dm.datasets[ds];
                         // Match?
                         if (patt == dsinfo.title || (patt + "s") == dsinfo.title) {
-                            target += "?name=listing&ds=" + dsinfo.name + "&mode=float";
+                            target += "?name=listing&ds=" + ds + "&mode=float";
                         }
                     });
                 }
