@@ -146,7 +146,7 @@
 
             if (name) {
 
-                dm.static = true;
+                dm.static = dm.urlParams.get("mode") !== "float";
 
                 var ds = dm.urlParams.get("ds");
                 var id = dm.urlParams.get("id");
