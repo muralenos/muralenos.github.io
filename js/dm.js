@@ -479,6 +479,7 @@ var dm = {
                         cb(data);
                     } else {
                         dm.fn.fetch(dsinfo.root + id + "/data.json", function (data) {
+
                             // As JSON
                             data = JSON.parse(data);
                             // Set
@@ -489,6 +490,16 @@ var dm = {
                                 data.imageURL = "images/clear.gif";
                             }
                             data.callPAGE = "dm.fn.showPage('detail','" + ds + "','" + id + "');";
+                            data.gps = data.gps || {};
+                            if (data.map) {
+                                // Longitude
+                                if (!data.gps.long) {
+                                    data.gps.long = parseFloat(dm.fn.stringBetween(data.map, "!2d", "!3d"));
+                                }
+                                if (!data.gps.lat) {
+                                    data.gps.lat = parseFloat(dm.fn.stringBetween(data.map, "!3d", "!m2"));
+                                }
+                            }
                             // Save
                             dsinfo.data[id] = data;
 
@@ -665,7 +676,7 @@ var dm = {
                     //
                     var oc = null;
                     //if (!dm.fn.contains(style, "noclick")) {
-                        oc = "dm.fn.showPage('detail','" + ds + "','" + id + "')";
+                    oc = "dm.fn.showPage('detail','" + ds + "','" + id + "')";
                     //}
                     gend = gend.replace("$$onclick$$", oc || '');
 
@@ -969,6 +980,38 @@ var dm = {
                 if (cb) cb(false);
             });
 
+        },
+
+        distance: function (lat1, lon1, lat2, lon2) {
+            var R = 6371; // km
+            var dLat = dm.fn.toRad(lat2 - lat1);
+            var dLon = dm.fn.toRad(lon2 - lon1);
+            var lat1 = dm.fn.toRad(lat1);
+            var lat2 = dm.fn.toRad(lat2);
+
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c;
+            return d;
+        },
+
+        // Converts numeric degrees to radians
+        toRad: function (Value) {
+            return Value * Math.PI / 180;
+        },
+
+        stringBetween: function (text, start, end) {
+            //
+            var pos = text.indexOf(start);
+            if (pos != -1) {
+                text = text.substr(pos + start.length);
+                pos = text.indexOf(end);
+                if (pos != -1) {
+                    text = text.substr(0, pos);
+                }
+            }
+            return text;
         }
 
     },
