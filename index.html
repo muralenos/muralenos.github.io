@@ -141,58 +141,63 @@
             //
             dm.randomdatasets.sort();
 
+            //
+            var name = dm.urlParams.get("name");
+            var ds = dm.urlParams.get("ds");
+            var id = dm.urlParams.get("id");
+            var via = dm.urlParams.get("via");
+            var mode = dm.urlParams.get("mode");
+
             // 404?
-            var url = dm.urlParams.get("via");
-            if (url) {
+
+            if (via) {
+
                 // See if there is one
-                Object.keys(dm.datasets).forEach(function (ds) {
+                Object.keys(dm.datasets).forEach(function (dsx) {
                     //
-                    var dsinfo = dm.datasets[ds];
+                    var dsinfo = dm.datasets[dsx];
                     // Match?
-                    if (url == dsinfo.title || (url + "s") == dsinfo.title) {
-                        target += "?name=listing&ds=" + ds + "&mode=float";
+                    if (via == dsinfo.title || (via + "s") == dsinfo.title) {
+
+                        // make call
+                        name = "listing";
+                        ds = dsx;
+                        mode = "float";
+
                     }
                 });
+            }
 
-                window.location.replace(target);
+            // Called?
+            if (name) {
+
+                dm.static = mode !== "float" && id != "";
+
+                dm.fn.showPage(name, ds, id);
 
             } else {
 
-                // Called?
-                var name = dm.urlParams.get("name");
-
-                if (name) {
-
-                    var ds = dm.urlParams.get("ds");
-                    var id = dm.urlParams.get("id");
-
-                    dm.static = dm.urlParams.get("mode") !== "float" && id != "";
-
-                    dm.fn.showPage(name, ds, id);
-
-                } else {
-
-                    dm.fn.showPage("intro");
-
-                }
-
-                //
-                $("#uploader").hide();
-
-                // Do extra load
-                dm.urlParams.getAll("module").forEach(function (name) {
-
-                    // Load
-                    dm.fn.loadJS("modules/" + name + ".js");
-
-                });
-
-                // Load all
-                //dm.fn.loadAllDatasets();
+                dm.fn.showPage("intro");
 
             }
 
-        });
+            //
+            $("#uploader").hide();
+
+            // Do extra load
+            dm.urlParams.getAll("module").forEach(function (name) {
+
+                // Load
+                dm.fn.loadJS("modules/" + name + ".js");
+
+            });
+
+            // Load all
+            //dm.fn.loadAllDatasets();
+
+        }
+
+            });
 
     </script>
 
