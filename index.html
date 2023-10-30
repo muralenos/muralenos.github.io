@@ -141,6 +141,12 @@
             //
             dm.randomdatasets.sort();
 
+            // 404?
+            var url = dm.urlParams.get("url");
+            if (url) {
+                alert(url);
+            }
+
             // Called?
             var name = dm.urlParams.get("name");
 

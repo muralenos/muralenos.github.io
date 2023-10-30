@@ -8,11 +8,9 @@
 
     <script>
 
-        alert(encodeURIComponent(window.location.pathname));
+        var target = window.location.protocol + "//" + window.location.hostname + "?url=" + encodeURIComponent(window.location.pathname);
 
-        //var target = window.location.protocol + "//" + window.location.hostname + "?name=listing&ds=food&mode=float";
-
-        //window.location.replace(target);
+        window.location.replace(target);
 
     </script>
 
