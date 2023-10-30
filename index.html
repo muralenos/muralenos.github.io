@@ -154,7 +154,7 @@
                     // Get
                     var patt = options[1].toLowerCase();
                     // See if there is one
-                   Object.keys(dm.datasets).forEach(function (ds) {
+                    Object.keys(dm.datasets).forEach(function (ds) {
                         //
                         var dsinfo = dm.datasets[ds];
                         // Match?
@@ -165,39 +165,42 @@
                 }
 
                 window.location.replace(target);
-            }
-
-            // Called?
-            var name = dm.urlParams.get("name");
-
-            if (name) {
-
-                var ds = dm.urlParams.get("ds");
-                var id = dm.urlParams.get("id");
-
-                dm.static = dm.urlParams.get("mode") !== "float" && id != "";
-
-                dm.fn.showPage(name, ds, id);
 
             } else {
 
-                dm.fn.showPage("intro");
+                // Called?
+                var name = dm.urlParams.get("name");
+
+                if (name) {
+
+                    var ds = dm.urlParams.get("ds");
+                    var id = dm.urlParams.get("id");
+
+                    dm.static = dm.urlParams.get("mode") !== "float" && id != "";
+
+                    dm.fn.showPage(name, ds, id);
+
+                } else {
+
+                    dm.fn.showPage("intro");
+
+                }
+
+                //
+                $("#uploader").hide();
+
+                // Do extra load
+                dm.urlParams.getAll("module").forEach(function (name) {
+
+                    // Load
+                    dm.fn.loadJS("modules/" + name + ".js");
+
+                });
+
+                // Load all
+                //dm.fn.loadAllDatasets();
 
             }
-
-            //
-            $("#uploader").hide();
-
-            // Do extra load
-            dm.urlParams.getAll("module").forEach(function (name) {
-
-                // Load
-                dm.fn.loadJS("modules/" + name + ".js");
-
-            });
-
-            // Load all
-            //dm.fn.loadAllDatasets();
 
         });
 
